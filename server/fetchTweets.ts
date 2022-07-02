@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import fetch from "node-fetch";
+import path from "path";
 
 export default async function fetchTweets(name: string) {
   const headers = await getHeaders();
@@ -12,7 +12,7 @@ export default async function fetchTweets(name: string) {
   } = (await idResponse.json()) as any;
 
   const response = await fetch(
-    `https://api.twitter.com/2/users/${id}/tweets`,
+    `https://api.twitter.com/2/users/${id}/tweets?tweet.fields=public_metrics`,
     headers
   );
 
@@ -22,10 +22,20 @@ export default async function fetchTweets(name: string) {
 }
 
 async function getHeaders() {
-  const token = fs.readFile("twitter_token.txt", { encoding: "utf8" });
-  return {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  try {
+    const token = await fs.readFile(
+      path.resolve(__dirname, "../twitter_token.txt"),
+      {
+        encoding: "utf-8",
+      }
+    );
+
+    return {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+  }
 }

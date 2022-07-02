@@ -6,11 +6,16 @@ const router = Router();
 
 router.get("/api/news", async (_req, res) => {
   try {
-    const settledPromises = await Promise.allSettled([fetchTweets("PlayStormgate"), fetchRedditPosts(20)]);
-    const results = settledPromises.map(result => result.status === 'fulfilled' ? result.value : []);
-    const [ tweets, redditPosts ] = results;
+    const settledPromises = await Promise.allSettled([
+      fetchTweets("PlayStormgate"),
+      fetchRedditPosts(20),
+    ]);
+    const results = settledPromises.map((result) =>
+      result.status === "fulfilled" ? result.value : []
+    );
+    const [tweets, redditPosts] = results;
 
-    res.status(200).send({tweets, redditPosts})
+    res.status(200).send({ tweets, redditPosts });
   } catch (error) {
     res.sendStatus(404);
   }
