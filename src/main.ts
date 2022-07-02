@@ -1,13 +1,17 @@
 import renderRedditPost from "./renderRedditPost";
+import renderTweets from "./renderTweets";
 import "./style.css";
 
 fetch("/api/news")
   .then((response) => response.json())
-  .then(({redditPosts}) => {
-    const ul = document.querySelector("[data-reddit]");
-
-    if(ul) {
-        ul.innerHTML = renderRedditPost(redditPosts);
+  .then(({ redditPosts, tweets }) => {
+    const redditUl = document.querySelector("[data-reddit]");
+    const twitterUl = document.querySelector("[data-twitter]");
+    if (redditUl) {
+      redditUl.innerHTML = renderRedditPost(redditPosts);
+    }
+    if (twitterUl) {
+      twitterUl.innerHTML = renderTweets(tweets);
     }
   })
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
