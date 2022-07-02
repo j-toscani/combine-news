@@ -3,7 +3,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: inherit;
 }
 
@@ -27,8 +29,15 @@ main,
   width: clamp(280px, 62vw, 1420px);
 }
 
+main {
+  display: flex;
+  gap: 1rem;
+}
+
+main > section {
+  flex-basis: 50%;
+}
+
 .text-center {
   text-align: center;
 }
-
-
