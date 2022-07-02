@@ -52,7 +52,7 @@ a {
   text-align: center;
 }
 
-[data-reddit] {
+ul {
   list-style: none;
   display: flex;
   gap: 1rem;
@@ -61,17 +61,17 @@ a {
   padding: 0;
 }
 
-[data-reddit] h3 {
+h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
-[data-reddit] > li {
+li {
   border: 1px solid;
   border-radius: 10px;
   padding: 0.75rem;
 }
 
-[data-reddit] > .stickied {
+.stickied {
   border-color: blue;
 }
