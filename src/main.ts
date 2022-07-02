@@ -1,14 +1,13 @@
-import fetchRedditPosts from "./fetchRedditPosts";
 import renderRedditPost from "./renderRedditPost";
 import "./style.css";
 
-fetchRedditPosts()
-  .then((response) => {
-    const markup = renderRedditPost(response);
+fetch("/api/news")
+  .then((response) => response.json())
+  .then(({redditPosts}) => {
     const ul = document.querySelector("[data-reddit]");
 
-    if (ul) {
-      ul.innerHTML = markup;
+    if(ul) {
+        ul.innerHTML = renderRedditPost(redditPosts);
     }
   })
-  .catch((err) => console.error(err));
+  .catch(err => console.log(err));

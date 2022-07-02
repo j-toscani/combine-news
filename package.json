@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc",
-    "start:server": "node ./dist/server",
+    "build": "tsc && vite build",
+    "start:server": "node ./dist/server.js",
     "build:server": "tsc --project tsconfig.server.json",
     "preview": "vite preview"
   },

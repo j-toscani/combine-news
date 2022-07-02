@@ -2,7 +2,7 @@ const headers = {
   Authorization: `Bearer <token>`,
 };
 
-async function fetchTweets(name) {
+export default async function fetchTweets(name: string) {
   const idResponse = await fetch(
     `https://api.twitter.com/2/users/by/username/${name}`,
     { headers }
@@ -19,7 +19,3 @@ async function fetchTweets(name) {
 
   return await response.json();
 }
-
-fetchTweets("PlayStormgate")
-  .then((response) => console.log(response))
-  .catch((err) => console.error(err));
