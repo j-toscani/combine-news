@@ -2,24 +2,26 @@ interface ReducedRedditPost {
   selftext: string;
   title: string;
   url: string;
+  stickied: boolean;
 }
 
 function reducePostContent(post: any) {
-  const { selftext, title, url } = post;
+  const { selftext, title, url, stickied } = post;
   return {
     selftext,
+    stickied,
     title,
     url,
   };
 }
 
 function createRedditPostMarkup(post: ReducedRedditPost) {
-  const { selftext, title, url } = post;
-  return `<li>
+  const { selftext, title, url, stickied } = post;
+  return `<li class="${stickied ? "stickied" : ""}">
           <a href="${url}" target="_blank" rel="noopener noreferrer">
-            <h2>
+            <h3>
               ${title}
-            </h2>
+            </h3>
             <small>
             <p>
               ${
