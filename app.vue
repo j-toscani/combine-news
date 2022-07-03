@@ -1,11 +1,14 @@
 <template>
   <header>
-    <small class="uppercase"> Get the newest posts and tweets on: </small>
+    <Head>
+      <Title>News on Stormgate!</Title>
+    </Head>
+    <small class="uppercase"> Get the latest posts and tweets on: </small>
     <a href="https://playstormgate.com/">
       <img src="/images/stormgate_logo_color.png" height="142" widht="512" />
     </a>
   </header>
-  <main class="container">
+  <main class="container mb-12">
     <NewsContainer>
       <template #reddit>
         <RedditPost
