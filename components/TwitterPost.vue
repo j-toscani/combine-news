@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a href="/">
+    <a :href="url">
       <p>
         {{ tweet.text }}
       </p>
@@ -15,6 +15,8 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from "vue";
+
 interface Tweet {
   id: string;
   public_metrics: {
@@ -26,11 +28,14 @@ interface Tweet {
   text: string;
 }
 
-defineProps({
+const props = defineProps({
   tweet: {
     type: Object as () => Tweet,
   },
 });
+const url = computed(
+  () => `https://twitter.com/twitter/status/${props.tweet.id}`
+);
 </script>
 
 <style scoped>
