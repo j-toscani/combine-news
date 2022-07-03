@@ -36,14 +36,14 @@ export default defineNuxtComponent({
 
 <style>
 html {
-  background-color: #0c1d29;
+  @apply bg-sg-400;
 }
 </style>
 
 <style scoped>
 main {
   @apply flex gap-1;
-  background-color: #017eb7;
+  @apply bg-sg-100;
   @apply text-white;
   @apply p-4 md:p-8;
 }
@@ -62,7 +62,7 @@ img {
 
 header {
   @apply p-8;
-  background-color: #13222d;
+  @apply bg-sg-300;
   @apply text-white;
   @apply flex;
   @apply mb-12;

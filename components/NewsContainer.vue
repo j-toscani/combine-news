@@ -34,7 +34,7 @@ h2 {
 ul:deep(li) {
   @apply border-b;
   @apply h-fit;
-  background-color: #006494;
+  @apply bg-sg-200;
 }
 
 ul:deep(li):not(:last-of-type) {
