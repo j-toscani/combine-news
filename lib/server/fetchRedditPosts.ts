@@ -6,7 +6,9 @@ export default async function fetchRedditPosts(limit = 20) {
   if (!response.ok) throw new Error("Response was not 'ok'");
 
   const posts = await response.json();
-  return posts.data.children.map(({ data }) => reduceRedditPostProps(data));
+  return posts.data.children
+    .map(({ data }) => reduceRedditPostProps(data))
+    .filter((post: ReturnType<typeof reduceRedditPostProps>) => !post.stickied);
 }
 
 function reduceRedditPostProps(post: any) {

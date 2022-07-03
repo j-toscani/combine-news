@@ -2,7 +2,7 @@ export default async function fetchTweets() {
   const headers = await getHeaders();
 
   const response = await fetch(
-    `https://api.twitter.com/2/users/1514038364277673988/tweets?tweet.fields=public_metrics`,
+    `https://api.twitter.com/2/users/1514038364277673988/tweets?tweet.fields=public_metrics&max_results=15`,
     headers
   );
 
