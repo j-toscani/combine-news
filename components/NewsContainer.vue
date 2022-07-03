@@ -30,7 +30,7 @@ ul {
     @apply flex flex-col;
 }
 
-ul >>> li {
+ul:deep(li) {
     @apply border-b;
 }
 

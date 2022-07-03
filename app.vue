@@ -1,8 +1,6 @@
 <template>
   <header>
-    <div class="container">
-      <h1>News on Stormgate!</h1>
-    </div>
+    <h1>News on Stormgate!</h1>
   </header>
   <main class="container">
     <NewsContainer>
@@ -36,5 +34,19 @@ export default defineNuxtComponent({
 <style scoped>
 main {
   @apply flex gap-1;
+}
+
+header {
+  @apply p-8;
+  @apply bg-blue-700;
+  @apply text-white;
+  @apply flex;
+  @apply mb-12;
+  @apply text-center;
+}
+
+h1 {
+  @apply text-4xl;
+  @apply mx-auto;
 }
 </style>
