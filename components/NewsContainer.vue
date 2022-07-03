@@ -1,20 +1,38 @@
 <template>
   <div>
     <div class="tabs-container">
-      <h2>Reddit posts</h2>
-      <h2>Tweets</h2>
+      <h2 @click="showContent('posts')" :class="{ active: showPosts }">
+        Reddit
+      </h2>
+      <h2 @click="showContent('tweets')" :class="{ active: showTweets }">
+        Tweets
+      </h2>
     </div>
     <section>
-      <ul>
+      <ul :class="{ 'hide-mobile': showTweets }">
         <slot name="reddit"></slot>
       </ul>
 
-      <ul>
+      <ul :class="{ 'hide-mobile': showPosts }">
         <slot name="twitter"></slot>
       </ul>
     </section>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { ref, computed } from "vue";
+
+type ContentTypes = "tweets" | "posts";
+
+const visibleContent = ref<ContentTypes>("tweets");
+const showTweets = computed(() => visibleContent.value === "tweets");
+const showPosts = computed(() => visibleContent.value === "posts");
+
+const showContent = (contentType: ContentTypes) => {
+  visibleContent.value = contentType;
+};
+</script>
 
 <style scoped>
 .tabs-container,
@@ -22,13 +40,33 @@ section {
   @apply flex gap-4;
 }
 
-h2,
-ul {
-  @apply w-1/2;
+.hide-mobile {
+  @apply hidden;
 }
 
 h2 {
+  @apply w-1/2;
   @apply mb-6;
+  @apply cursor-pointer;
+  @apply opacity-60;
+  @apply transition-colors;
+}
+
+.active {
+  @apply opacity-100;
+}
+
+@screen md {
+  .hide-mobile {
+    @apply block;
+  }
+  h2 {
+    @apply cursor-default;
+    @apply opacity-100;
+  }
+  ul {
+    @apply w-1/2;
+  }
 }
 
 ul:deep(li) {
