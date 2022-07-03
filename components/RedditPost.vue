@@ -2,12 +2,14 @@
   <li :class="post.stickied ? 'stickied' : ''">
     <a :href="post.url">
       <h3>{{ post.title }}</h3>
-      <p>{{slicedText}}</p>
+      <p>{{ slicedText }}</p>
     </a>
   </li>
 </template>
 
 <script lang="ts" setup>
+import { computed } from "vue";
+
 interface RedditPost {
   selftext: string;
   stickied: boolean;
@@ -30,18 +32,19 @@ const slicedText = computed(() =>
 
 <style scoped>
 p {
-    @apply break-words;
+  @apply break-words;
 }
 
 h3 {
-    @apply mb-2;
+  @apply mb-2;
+  @apply font-bold;
 }
 
 p {
-    @apply text-sm;
+  @apply text-sm;
 }
 
 li {
-    @apply p-4;
+  @apply p-4;
 }
 </style>
