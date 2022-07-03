@@ -1,7 +1,40 @@
-# combine-news
+# Nuxt 3 Minimal Starter
 
-Needs Node v18+
+## Setup
 
-## Prerequisits
+Make sure to install the dependencies:
 
-In order to fetch Data from the Twitter API you need to [create developer account](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api) and place your `TOKEN` in a file called `twitter_token.txt` located in the project root.
+```bash
+# yarn
+yarn install
+
+# npm
+npm install
+
+# pnpm
+pnpm install --shamefully-hoist
+```
+
+## Development Server
+
+Start the development server on http://localhost:3000
+
+```bash
+npm run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+npm run build
+```
+
+Locally preview production build:
+
+```bash
+npm run preview
+```
+
+Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
