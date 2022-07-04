@@ -7,15 +7,15 @@
       <template #reddit>
         <RedditPost
           v-for="(post, index) in data.redditPosts"
-          :post="post"
           :key="`reddit-${index}`"
+          :post="post"
         />
       </template>
       <template #twitter>
         <TwitterPost
           v-for="(tweet, index) in data.tweets"
-          :tweet="tweet"
           :key="`twitter-${index}`"
+          :tweet="tweet"
         />
       </template>
     </NewsContainer>
