@@ -18,6 +18,7 @@ interface RedditPost {
 const props = defineProps({
   post: {
     type: Object as () => RedditPost,
+    required: true
   },
 });
 

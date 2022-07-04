@@ -2,7 +2,7 @@ import { defineEventHandler } from "h3";
 import fetchRedditPosts from "@/lib/server/fetchRedditPosts";
 import fetchTweets from "@/lib/server/fetchTweets";
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (_event) => {
   const settledPromises = await Promise.allSettled([
     fetchTweets(),
     fetchRedditPosts(20),

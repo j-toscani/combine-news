@@ -11,7 +11,7 @@ export default async function fetchTweets() {
   return (await response.json()).data;
 }
 
-async function getHeaders() {
+function getHeaders() {
   const token = process.env.TWITTER_API_TOKEN;
 
   return {

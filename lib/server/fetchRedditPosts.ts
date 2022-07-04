@@ -9,7 +9,7 @@ export default async function fetchRedditPosts(limit = 20) {
   return posts.data.children.map(({ data }) => reduceRedditPostProps(data));
 }
 
-function reduceRedditPostProps(post: any) {
+function reduceRedditPostProps(post: Record<string, unknown>) {
   const { selftext, title, url, stickied } = post;
   return {
     selftext,

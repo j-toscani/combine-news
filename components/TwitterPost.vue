@@ -29,6 +29,7 @@ interface Tweet {
 defineProps({
   tweet: {
     type: Object as () => Tweet,
+    required: true
   },
 });
 </script>
